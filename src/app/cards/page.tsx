@@ -1,4 +1,7 @@
-import CardsComponent from './cards'
+import dynamic from 'next/dynamic';
+
+// Dynamically import CardsComponent to disable SSR
+const CardsComponent = dynamic(() => import('./cards'), { ssr: false });
 
 export default function CardsPage() {
   return (
@@ -6,5 +9,5 @@ export default function CardsPage() {
       <h1>Cards Page</h1>
       <CardsComponent />
     </>
-  )
+  );
 }
